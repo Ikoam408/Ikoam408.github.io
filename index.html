@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Music-Shooter-X</title>
+  </head>
+  <body data-era="past">
+    <section class="start-screen" id="start-screen" aria-label="Music-Shooter-X start screen">
+      <button id="redeem-open" class="redeem-open" type="button">Redeem Code</button>
+      <div class="start-card">
+        <p class="eyebrow">Est. 1888 / Rebuilt for the future</p>
+        <h1>Music-Shooter-X</h1>
+        <p class="start-copy">A phonograph-powered time shooter where brass cannons, bass waves, and future light engines collide.</p>
+        <div class="start-actions">
+          <button id="enter-game" class="start-btn" type="button">Start Game</button>
+          <button id="start-focus" class="start-btn secondary" type="button">Start in Focus</button>
+        </div>
+        <div id="redeem-panel" class="redeem-panel hidden" aria-live="polite">
+          <div class="redeem-title">Redeem Code</div>
+          <div class="redeem-row">
+            <input id="redeem-code-input" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter code" />
+            <button id="redeem-submit" class="mini-btn" type="button">Apply</button>
+            <button id="redeem-close" class="mini-btn ghost" type="button">Close</button>
+          </div>
+          <div id="redeem-message" class="redeem-message"></div>
+        </div>        <div class="timeline-strip" aria-label="Timeline selection">
+          <button class="era-btn active" type="button" data-era="past">1888</button>
+          <button class="era-btn" type="button" data-era="present">2026</button>
+          <button class="era-btn" type="button" data-era="future">3026</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="Gamer">
+      <span id="Gamer"></span>
+    </div>
+
+    <main class="app-shell">
+      <section class="player-panel">
+        <p class="eyebrow">Phonograph Engine</p>
+        <h1>Music-Shooter-X</h1>
+
+        <div class="music-container" id="music-container">
+          <div class="music-info">
+            <h4 id="title"></h4>
+            <div class="progress-container" id="progress-container">
+              <div class="progress" id="progress"></div>
+            </div>
+          </div>
+
+          <audio src="music/California Love - Cheema Y, Gur Sidhu (320kbps) [apnamusic.com].mp3" id="audio"></audio>
+
+          <div class="controls-panel">
+            <div class="volume-control">
+              <i class="fas fa-volume-down"></i>
+              <input type="range" id="volume-slider" min="0" max="100" value="30">
+              <i class="fas fa-volume-up"></i>
+            </div>
+            <canvas id="visualizer"></canvas>
+          </div>
+
+          <div class="img-container">
+            <img src="music/images/3adeeb5c0d6d42e67178da2dcd8e16a1.1000x1000x1_300x300.jpg" alt="music-cover" id="cover" />
+          </div>
+          <div class="navigation">
+            <button id="prev" class="action-btn" aria-label="Previous song">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big" aria-label="Play or pause song">
+              <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn" aria-label="Next song">
+              <i class="fas fa-forward"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="arcade-panel" id="arcade-panel">
+        <div class="arcade-header">
+          <div>
+            <p class="eyebrow">Time cabinet mode</p>
+            <h2>Music-Shooter-X</h2>
+          </div>
+          <button id="focus-game" class="focus-btn">Focus Game</button>
+        </div>
+        <iframe
+          id="arcade-frame"
+          class="arcade-frame"
+          title="Music-Shooter-X"
+          src="shooter_game/index.html"
+          loading="eager"
+          tabindex="0"
+          allowfullscreen
+        ></iframe>
+      </section>
+
+      <section class="dashboard-panel">
+        <div class="dashboard-card leaderboard-card">
+          <div class="dashboard-heading">
+            <p class="eyebrow">Hall of High Scores</p>
+            <button id="refresh-board" class="mini-btn" type="button">Refresh</button>
+          </div>
+          <div id="main-leaderboard" class="main-leaderboard"></div>
+        </div>
+
+        <div class="dashboard-card tasks-card">
+          <div class="dashboard-heading">
+            <p class="eyebrow">Bounties</p>
+            <button id="reset-tasks" class="mini-btn" type="button">Reset</button>
+          </div>
+          <div id="task-list" class="task-list"></div>
+        </div>
+
+        <div class="dashboard-card timeline-card">
+          <div class="dashboard-heading">
+            <p class="eyebrow">Time Dial</p>
+            <span class="timeline-readout" id="timeline-readout">1888 Past</span>
+          </div>
+          <div class="era-effect" id="era-effect">Brass armor, smoky trails, slower invaders.</div>
+          <div class="timeline-strip compact" aria-label="Timeline selection">
+            <button class="era-btn active" type="button" data-era="past">1888</button>
+            <button class="era-btn" type="button" data-era="present">2026</button>
+            <button class="era-btn" type="button" data-era="future">3026</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="shortcuts-info">
+      <small>Keyboard: Spacebar = Play/Pause | Left/Right = Prev/Next | Up/Down = Volume</small>
+    </div>
+
+
+    <div id="time-machine-cutscene" class="time-machine-cutscene hidden" aria-hidden="true">
+      <div class="time-tunnel" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="time-cutscene-panel">
+        <p class="eyebrow">Chrono Shift</p>
+        <h2 id="time-cutscene-era">1888 Past</h2>
+        <p id="time-cutscene-line">The cabinet is opening a brass corridor.</p>
+      </div>
+    </div>
+
+    <div id="game-toast" class="game-toast" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
